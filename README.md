@@ -1,6 +1,8 @@
 # GPU Fan Control
 
 Simple program to control NVIDIA GPU fan speeds based on temperature using a piecewise linear curve.
+Requirements: 
+  - NVML header and lib file (your distro's cuda package most likely includes these)
 
 ## Building
 
@@ -18,7 +20,7 @@ sudo ./gpu-fan-control [-p poll_rate_ms] temp1 fan1 temp2 fan2 [temp3 fan3 ...]
 ```
 
 Arguments:
-- `-p poll_rate_ms`: Optional polling rate in milliseconds (default: 1000)
+- `-p poll_rate_ms`: Optional temperature polling rate in milliseconds (default: 1000)
 - `tempX`: Temperature point in Celsius
 - `fanX`: Fan speed percentage (0-100) for corresponding temperature
 
@@ -31,4 +33,3 @@ This creates a curve where:
 - At 50°C: 60% fan speed
 - At 70°C and above: 100% fan speed
 
-The program detects and controls all available fans on the GPU. Press Ctrl+C to exit.
